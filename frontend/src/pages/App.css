@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+}
+
+.background {
+  background-color: darkslategray;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.app {
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  border: solid 2px rgb(32, 32, 32);
+  margin: 0 auto;
+  height: 550px;
+  width: 300px;
+  text-align: center;
+  overflow: scroll;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+
+label p {
+  color: rgb(32, 32, 32);
+  text-align: left;
+  margin-bottom: -20px;
+  padding: 0 5px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.input {
+  background-color: #ededed;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  width: 90%;
+  margin-top: 0px;
+}
+
+.textarea {
+  height: 200px;
+  color: rgb(32, 32, 32);
+}
+
+.text {
+  height: 30px;
+  color: rgb(32, 32, 32);
+}
+
+.errorMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  font-size: 16px;
+  color:rgb(32, 32, 32);
+}

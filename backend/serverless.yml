@@ -1,0 +1,62 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: baranbulduk
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: shui
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-north-1
+  httpApi:
+    cors: true
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: '*'
+
+functions:
+  CreateMessage:
+    handler: functions/CreateMessage/index.handler
+    events:
+      - httpApi:
+          path: /message
+          method: POST
+      
+
+  GetMessage:
+    handler: functions/GetMessage/index.handler
+    events:
+      - httpApi:
+          path: /admin/message
+          method: GET
+
+  UpdateMessage:
+    handler: functions/UpdateMessage/index.handler
+    events:
+      - httpApi:
+          path: /message/{id}
+          method: PUT
+
+resources:
+  Resources:
+    MessagesTable:
+      Type: AWS::DynamoDB::Table
+      Properties: 
+        TableName: Messages
+        AttributeDefinitions: 
+          - AttributeName: id
+            AttributeType: S
+        KeySchema: 
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput: 
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

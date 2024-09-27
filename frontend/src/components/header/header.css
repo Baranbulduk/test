@@ -1,0 +1,18 @@
+header {
+    background-color: #ededed;border-radius: 15px 15px 0px 0px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;align-items: center;
+    z-index: 99;
+}
+
+.button {
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: #000000;
+    font-weight: 1000;
+    font-size: 18px;
+    margin: 0 10px;
+
+}
