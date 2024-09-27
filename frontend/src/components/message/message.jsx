@@ -31,7 +31,6 @@ function MessageComponent() {
           <div className='message_background'>
           <p className='message'>{item.message}</p></div>
           <p className='username'>{new Date(item.createdAt).toLocaleDateString()} {new Date(item.createdAt).toLocaleTimeString()}</p>
-          
           <button className='updatebutton' onClick={() => handleUpdateClick(item.id, item.username, item.message)}>Update</button>
         </div>
         ))}
